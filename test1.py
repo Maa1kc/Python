@@ -1119,3 +1119,99 @@ user_query = 'как стать бэкенд-разработчиком'
 url = 'https://yandex.ru/search/?text=' + '%20'.join(user_query.split())
 
 print(url)
+
+import urllib.parse
+
+
+url = 'https://yandex.ru/search/?text=%D0%BA%D0%B0%D0%BA%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE%20%D0%B5%D0%B7%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BD%D0%B0%20%D1%82%D0%B0%D0%BA%D1%81%D0%B8'
+url_parts = url.split('=')
+# чтобы вычленить текст вопроса
+# разбейте строку по знаку = и возьмите
+# второй элемент получившегося списка
+question =  url_parts[1]# сохраните его в переменной question
+
+# напечатайте на экран запрос в расшифрованном виде
+print(urllib.parse.unquote(question))  # ваш код здесь
+
+# Импортируем библиотеку:
+import requests
+
+# Отправляем GET-запрос:
+response = requests.get('http://info.cern.ch/')
+
+print(response.text)  # Печатаем код запрошенной страницы.
+
+
+import requests
+
+url = 'http://wttr.in/?0T'
+
+response = requests.get(url)  # выполните HTTP-запрос
+
+print(response.text)  # напечатайте текст HTTP-ответа
+
+import requests
+
+
+url = 'https://wttr.in'  # не изменяйте значение URL
+
+weather_parameters = {
+    '0': '',
+    "T": ""
+    # добавьте параметр запроса `T`, чтобы вернулся чёрно-белый текст
+}
+
+response = requests.get(url, params=weather_parameters)  # передайте параметры в http-запрос
+
+print(response.text)
+
+import requests
+
+
+url = 'https://wttr.in'  # не изменяйте значение URL
+
+weather_parameters = {
+    '0': '',
+    "T": "",
+    "M": "",
+    "lang": "ru"
+    # добавьте параметр запроса `T`, чтобы вернулся чёрно-белый текст
+}
+
+response = requests.get(url, params=weather_parameters)  # передайте параметры в http-запрос
+
+print(response.text)
+
+import requests
+
+response = requests.get('https://ya.ru/white')
+
+# вот мы узнали, что код ответа 200 и заполучили это число в свой код:
+code = response.status_code
+print(f'Код ответа = {code}')
+
+# а вот мы и заголовки читаем, и выводим их форматированной строкой
+# с примечанием, каким захочется, на любом языке
+headers = response.headers
+print(f'Тип содержимого: {headers["content-type"]}')
+print(f'Время ответа: {headers["date"]}')
+
+import requests
+
+url = 'https://wttr.in'
+
+weather_parameters = {
+    '0': '',
+    'T': '',  # удалите этот параметр
+    'M': '',
+}
+
+request_headers = {
+    # заполните словарь с заголовкам
+    "Accept-Language": "ru"
+}
+
+# не забудьте передать параметры и заголовки в http-запрос
+# через аргументы `params` и `headers` функции get()
+response = requests.get(url, params=weather_parameters, headers=request_headers)
+print(response.text)
