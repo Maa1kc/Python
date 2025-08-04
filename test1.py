@@ -1215,3 +1215,14 @@ request_headers = {
 # через аргументы `params` и `headers` функции get()
 response = requests.get(url, params=weather_parameters, headers=request_headers)
 print(response.text)
+
+import requests
+
+request_headers = {
+    'Accept-Language': 'ru'  # попросим материал на русском языке
+}
+
+# сходим почитать блоги про IT, строкой передаём URL платформы habr
+response = requests.get('https://habr.com', headers=request_headers)
+
+print(response.text) 
