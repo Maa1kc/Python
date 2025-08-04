@@ -793,3 +793,268 @@ def find_a_present(prizes):
 print(find_a_present(['кукла', 'жвачка', 'игрушечный питон']))
 print(find_a_present(['мяч', 'чебурашка', 'лосяш']))
 
+
+def what_time(city):
+    # Напишите код тела функции;
+    # она должна вернуть текущее время в городе city
+    now_time = dt.datetime.utcnow()
+    city_time = dt.timedelta(hours = UTC_OFFSET[city])
+    current_time = now_time + city_time
+    return current_time
+
+print(what_time('Екатеринбург'))
+
+import datetime as dt
+
+DATABASE = {
+    'Серёга': 'Омск',
+    'Соня': 'Москва',
+    'Дима': 'Челябинск',
+    'Алина': 'Красноярск',
+    'Егор': 'Пермь'
+}
+
+UTC_OFFSET = {
+    'Санкт-Петербург': 3,
+    'Москва': 3,
+    'Самара': 4,
+    'Новосибирск': 7,
+    'Екатеринбург': 5,
+    'Нижний Новгород': 3,
+    'Казань': 3,
+    'Челябинск': 5,
+    'Омск': 6,
+    'Ростов-на-Дону': 3,
+    'Уфа': 5,
+    'Красноярск': 7,
+    'Пермь': 5,
+    'Воронеж': 3,
+    'Волгоград': 3,
+    'Краснодар': 3,
+    'Калининград': 2
+}
+
+
+def what_city_time(city):
+    # Напишите код тела функции;
+    # она должна вернуть текущее время в городе city
+    utc_time = dt.datetime.utcnow()
+    period = dt.timedelta(hours=UTC_OFFSET[city])
+    city_time = utc_time + period
+    return city_time
+
+
+def what_time(friend):
+    # напишите код тела функции
+    # пусть она вернет время у друга из аргумента friend
+    friend_city = DATABASE[friend]
+    return what_city_time(friend_city)
+
+
+print(what_time('Соня'))
+
+import datetime as dt
+
+DATABASE = {
+    'Серёга': 'Омск',
+    'Соня': 'Москва',
+    'Дима': 'Челябинск',
+    'Алина': 'Красноярск',
+    'Егор': 'Пермь'
+}
+
+UTC_OFFSET = {
+    'Санкт-Петербург': 3,
+    'Москва': 3,
+    'Самара': 4,
+    'Новосибирск': 7,
+    'Екатеринбург': 5,
+    'Нижний Новгород': 3,
+    'Казань': 3,
+    'Челябинск': 5,
+    'Омск': 6,
+    'Ростов-на-Дону': 3,
+    'Уфа': 5,
+    'Красноярск': 7,
+    'Пермь': 5,
+    'Воронеж': 3,
+    'Волгоград': 3,
+    'Краснодар': 3,
+    'Калининград': 2
+}
+
+def what_time(friend):
+    # напишите код тела функции
+    # пусть она вернет время у друга из аргумента friend
+    now_time = dt.datetime.utcnow()
+    city = DATABASE[friend]
+    city_time = dt.timedelta(hours = UTC_OFFSET[city])
+    current_time = now_time + city_time
+    return current_time
+
+
+print(what_time('Соня'))
+
+# Урок 5: Форматирование времени
+
+# 1
+
+import datetime as dt
+
+
+DATABASE = {
+    'Серёга': 'Омск',
+    'Соня': 'Москва',
+    'Дима': 'Челябинск',
+    'Алина': 'Красноярск',
+    'Егор': 'Пермь'
+}
+
+UTC_OFFSET = {
+    'Санкт-Петербург': 3,
+    'Москва': 3,
+    'Самара': 4,
+    'Новосибирск': 7,
+    'Екатеринбург': 5,
+    'Нижний Новгород': 3,
+    'Казань': 3,
+    'Челябинск': 5,
+    'Омск': 6,
+    'Ростов-на-Дону': 3,
+    'Уфа': 5,
+    'Красноярск': 7,
+    'Пермь': 5,
+    'Воронеж': 3,
+    'Волгоград': 4,
+    'Краснодар': 3,
+    'Калининград': 2
+}
+
+
+def what_time(friend):
+    utc_time = dt.datetime.utcnow()
+    city = DATABASE[friend]
+    city_time = utc_time + dt.timedelta(hours=UTC_OFFSET[city])
+    return city_time.strftime('%H:%M')
+
+
+print(what_time('Соня'))
+
+# 2
+
+import datetime as dt
+
+DATABASE = {
+    'Сергей': 'Омск',
+    'Соня': 'Москва',
+    'Алексей': 'Калининград',
+    'Миша': 'Москва',
+    'Дима': 'Челябинск',
+    'Алина': 'Красноярск',
+    'Егор': 'Пермь',
+    'Коля': 'Красноярск',
+    'Артём': 'Владивосток',
+    'Петя': 'Михайловка'
+}
+
+UTC_OFFSET = {
+    'Москва': 3,
+    'Санкт-Петербург': 3,
+    'Новосибирск': 7,
+    'Екатеринбург': 5,
+    'Нижний Новгород': 3,
+    'Казань': 3,
+    'Челябинск': 5,
+    'Омск': 6,
+    'Самара': 4,
+    'Ростов-на-Дону': 3,
+    'Уфа': 5,
+    'Красноярск': 7,
+    'Воронеж': 3,
+    'Пермь': 5,
+    'Волгоград': 3,
+    'Краснодар': 3,
+    'Калининград': 2,
+    'Владивосток': 10
+}
+
+
+def format_count_friends(count_friends):
+    if count_friends == 1:
+        return '1 друг'
+    elif 2 <= count_friends <= 4:
+        return f'{count_friends} друга'
+    else:
+        return f'{count_friends} друзей'
+
+
+def what_time(city):
+    offset = UTC_OFFSET[city]
+    city_time = dt.datetime.utcnow() + dt.timedelta(hours=offset)
+    f_time = city_time.strftime("%H:%M")
+    return f_time
+
+
+def process_anfisa(query):
+    if query == 'сколько у меня друзей?':
+        count = len(DATABASE)
+        return f'У тебя {format_count_friends(count)}.'
+    elif query == 'кто все мои друзья?':
+        friends_string = ', '.join(DATABASE)
+        return f'Твои друзья: {friends_string}'
+    elif query == 'где все мои друзья?':
+        unique_cities = set(DATABASE.values())
+        cities_string = ', '.join(unique_cities)
+        return f'Твои друзья в городах: {cities_string}'
+    else:
+        return '<неизвестный запрос>'
+
+
+def process_friend(name, query):
+    if name in DATABASE:
+        city = DATABASE[name]
+        if query == 'ты где?':
+            return f'{name} в городе {city}'
+        elif query == 'который час?':
+            if city in UTC_OFFSET:
+                return f'Там сейчас {what_time(city)}'
+            else:
+                return f'<не могу определить время в городе {city}>'
+        else:
+            return '<неизвестный запрос>'
+    else:
+        return f'У тебя нет друга по имени {name}'
+
+
+def process_query(query):
+    elements = query.split(', ')
+    if elements[0] == 'Анфиса':
+        return process_anfisa(elements[1])
+    else:
+        return process_friend(elements[0], elements[1])
+
+
+def runner():
+    queries = [
+        'Анфиса, сколько у меня друзей?',
+        'Анфиса, кто все мои друзья?',
+        'Анфиса, где все мои друзья?',
+        'Анфиса, кто виноват?',
+        'Коля, ты где?',
+        'Соня, что делать?',
+        'Антон, ты где?',
+        'Алексей, который час?',
+        'Артём, который час?',
+        'Антон, который час?',
+        'Петя, который час?'
+    ]
+    for query in queries:
+        print(query, '-', process_query(query))
+
+runner()
+
+user_query = 'как стать бэкенд-разработчиком'
+
+url = 'https://yandex.ru/search/?text=' + '%20'.join(user_query.split())
+
+print(url)
