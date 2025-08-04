@@ -793,6 +793,67 @@ def find_a_present(prizes):
 print(find_a_present(['кукла', 'жвачка', 'игрушечный питон']))
 print(find_a_present(['мяч', 'чебурашка', 'лосяш']))
 
+#01.08.2025 Библиотеки
+
+import datetime as dt
+
+# Дата выхода первой серии.
+start_time = dt.datetime(2011, 4, 17)
+# Укажите дату выхода последней серии.
+final_time = dt.datetime(2019, 4, 15)
+
+# Вычислите, сколько времени шёл сериал.
+duration = final_time - start_time
+
+print(duration)
+
+# подключите библиотеку datetime под именем dt
+import datetime as dt
+
+start_moment = dt.datetime(2022, 9, 24)  # Напишите код здесь
+current_moment = dt.datetime(2022, 10, 3)  # и здесь
+
+total_time = current_moment - start_moment  # и здесь
+
+print(total_time)
+
+import datetime as dt
+
+# Как и раньше - определяем текущее время UTC
+utc_time = dt.datetime.utcnow()
+
+# Создаём промежуток времени в три часа
+period = dt.timedelta(hours=3)
+
+# И прибавляем к значению времени по UTC поправку в три часа:
+moscow_time = utc_time + period
+
+# Печатаем
+print(moscow_time)
+print(period)
+print(type(utc_time))
+
+import datetime as dt
+
+UTC_OFFSET = {
+    'Санкт-Петербург': 3,
+    'Москва': 3,
+    'Самара': 4,
+    'Новосибирск': 7,
+    'Екатеринбург': 5,
+    'Нижний Новгород': 3,
+    'Казань': 3,
+    'Челябинск': 5,
+    'Омск': 6,
+    'Ростов-на-Дону': 3,
+    'Уфа': 5,
+    'Красноярск': 7,
+    'Пермь': 5,
+    'Воронеж': 3,
+    'Волгоград': 3,
+    'Краснодар': 3,
+    'Калининград': 2
+}
 
 def what_time(city):
     # Напишите код тела функции;
