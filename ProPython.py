@@ -1,3 +1,6 @@
+from test1 import count
+
+
 def practicum():
     args = {
         0: 'Практикум',
@@ -30,3 +33,18 @@ minutes = (res // 60) % 60
 seconds = res % (days*24*3600 + hours*3600 + minutes*60)
 
 print(days, hours, minutes, seconds)
+
+weight = 75  # Вес
+height = 175 # Рост
+dist = 9.75  # Расстояние в км
+hours = 2    # Время движения в часах
+
+spent_calories =  (0.035*weight + (dist/hours)**2/height * 0.029*weight) * hours*60 # Напишите формулу расчета
+#spent_calories = (0.035*weight) * ((((dist/2)**2)/height) * (0.029 * weight)) * # Напишите формулу расчета
+
+print(spent_calories)
+
+count = 1
+
+count = count + 1
+count += 1
